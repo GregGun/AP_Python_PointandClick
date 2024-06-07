@@ -3,6 +3,7 @@ from PyQt6.QtGui import QPixmap, QMouseEvent, QPaintEvent, QPainter, QColor, QFo
 from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput, QAudioDevice
 from PyQt6.QtWidgets import QLabel
 
+# Grundgerüst für alle anderen Räume wird gebaut
 
 class TemplateRoom(QLabel):
     leave_room = pyqtSignal(str)
@@ -33,6 +34,7 @@ class TemplateRoom(QLabel):
 
         self.__mouse_pos = QPoint()
 
+        #offset_ballon = Sprechblase
         self.offset_balloon_length = 500
         self.offset_balloon_width = 150
 

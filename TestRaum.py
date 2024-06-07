@@ -69,7 +69,6 @@ class TestRaum(TemplateRoom):
 
     #def button_action(self):
         #print("Button wurde geklickt")
-
 # ------------------------------------------------------------------------------------------------------
 
 

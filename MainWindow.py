@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import QMainWindow, QMenuBar, QStatusBar, QMessageBox
 from Aula import Aula
 from Eingang import Eingang
 from TestRaum import TestRaum
+from EigenerRaum import EigenerRaum
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -52,6 +53,7 @@ class MainWindow(QMainWindow):
         self.__hitbox_action.toggled.connect(self.central_widget.setHitBoxVisible)
         self.setCentralWidget(self.central_widget)
 
+# Hier erweitern, wenn ich neuen Raum hinzufüge
     @pyqtSlot(str)
     def renew_room(self, new_room):
         # Slot zum Wechseln des Raumes basierend auf dem übergebenen Raumnamen
@@ -59,10 +61,14 @@ class MainWindow(QMainWindow):
             self.central_widget = Aula()
         elif new_room == "weis.png":
             self.central_widget = TestRaum()
+        elif new_room == "images.jpeg":
+            self.central_widget = EigenerRaum()
+
         else:
             print("Fehler: new_room nicht vergeben")
         self.setup_new_room()
 
+# Hier erweitern, wenn ich neuen Raum hinzufüge (in welchen Raum gehe ich zurück, wenn ich EXIT drücke)
     @pyqtSlot(str)
     def change_room(self, old_room):
         # Slot zum Wechseln des Raumes, ähnlich wie renew_room, aber für den Verlassen-Event
@@ -70,6 +76,8 @@ class MainWindow(QMainWindow):
             self.central_widget = Eingang()
         elif old_room == "weis.png":
             self.central_widget = TestRaum()
+        elif old_room =="images.jpeg":
+            self.central_widget = Aula()
         else:
             print("Fehler: change_room nicht vergeben")
         self.setup_new_room()
