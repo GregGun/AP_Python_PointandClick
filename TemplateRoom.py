@@ -52,6 +52,25 @@ class TemplateRoom(QLabel):
         self.audioOutput = QAudioOutput()
         self.player.setAudioOutput(self.audioOutput)
 
+# Wenns nicht geht wegen windows
+
+#    def resizeEvent(self, event):
+#        self.update_pixmap()
+#        super().resizeEvent(event)
+#
+#    def update_pixmap(self):
+#        if self.__background_pixmap:
+#            self.scaled_pixmap = self.__background_pixmap.scaled(self.size(), Qt.AspectRatioMode.KeepAspectRatio,
+#                                                                 Qt.TransformationMode.SmoothTransformation)
+#        self.update()
+
+
+# dann auch bei paint event
+#    def paintEvent(self, a0: QPaintEvent) -> None:
+#        painter = QPainter(self)
+#        if self.scaled_pixmap:
+#            painter.drawPixmap(self.rect(), self.scaled_pix
+
     def mouseMoveEvent(self, ev: QMouseEvent) -> None:
         for hitbox in self.__hitboxes:
             if hitbox.contains(ev.pos()):
